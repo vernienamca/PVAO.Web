@@ -1,0 +1,143 @@
+﻿@{
+    ViewBag.Title = "Add Page";
+}
+
+<div class="recent-activity my-listing">
+    <div class="act-title">
+        <h5><span class="header-text">Add Page</span></h5>
+        <p class="breadcrumbs">
+            <i class="fa fa-link"></i>
+            <a href="/Dashboard/Index">Home</a> / <a href="/Administration/Pages">Pages</a> / <span class="subheader-text">Add Page</span>
+        </p>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mt-3 tab-card">
+                <div class="card-header tab-card-header">
+                    <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="one-tab" data-toggle="tab" href="#one" role="tab" aria-controls="One" aria-selected="true">General</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="page-access-tab" data-toggle="tab" href="#two" role="tab" aria-controls="Two" aria-selected="false">Page Access</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade in show active p-3" id="one" role="tabpanel" aria-labelledby="one-tab">
+                        <p><mark><i>All fields with red asterisk (*) are required to fill.</i></mark></p>
+                        <br />
+
+                        <div id="page-validation-alert" class="alert alert-danger" role="alert">
+                            <strong><i class="lnr lnr-bookmark"></i> Please fill-out required fields below.</strong>
+                        </div>
+
+                        <div id="page-updated-alert" class="alert alert-success" role="alert">
+                            <strong><i class="lnr lnr-bookmark"></i> Changes has been successfully saved.</strong>
+                        </div>
+                        <br />
+
+                        <div class="form-group">
+                            <label>Page Name <span>*</span></label>
+                            <input id="page-name-text" type="text" class="form-control" placeholder="E.g. Property Listing" autofocus>
+                        </div>
+                        <div class="form-group">
+                            <label>Description <span>*</span></label>
+                            <input id="page-description-text" type="text" class="form-control" placeholder="E.g. Property Listing">
+                        </div>
+                        <div class="form-group">
+                            <label>URL Path <span>*</span></label>
+                            <input id="page-url-path-text" type="text" class="form-control" placeholder="E.g. /Property/PropertyListing">
+                        </div>
+                     
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group form-check">
+                                    <input id="accessible-all-check" type="checkbox" class="form-check-input">
+                                    <label class="form-check-label" for="accessible-all-check">Accessible By All</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group form-check">
+                                    <input id="page-active-check" type="checkbox" class="form-check-input">
+                                    <label class="form-check-label" for="page-active-check">Active</label>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <button id="save-page-btn" type="submit" class="btn btn-primary"><i class="lnr lnr-thumbs-up"></i> Save Changes</button>
+                    </div>
+                    <div class="tab-pane fade p-3" id="two" role="tabpanel" aria-labelledby="two-tab">
+                        <p>Everyone who works on your page can have different role depending on what they need to work on.</p>
+                        <br />
+
+                        <div id="page-role-added-alert" class="alert alert-success" role="alert">
+                            <strong><i class="lnr lnr-bookmark"></i> <span id="page-role-alert-text">Role was successfully added.</span></strong>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form class="hero__form v1 filter listing-filter property-filter">
+                                    <div class="row">
+                                        <div class="col-xl-2 col-lg-6 col-md-6 col-sm-12 col-12 py-3 pl-30 pr-0">
+                                            <div class="submit_btn">
+                                                <a class="page-add-role-btn btn v3"><i class="fa fa-plus-circle"></i> Add</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xl-8 col-lg-6 col-md-6 col-sm-12 col-12 py-3 pl-30 pr-0">
+                                            <div class="input-search">
+                                                <input id="page-access-search-text" type="text" placeholder="Search roles here...">
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-1 col-lg-6 col-md-6 col-sm-12 col-12 py-3 pl-30 pr-0">
+                                            <div class="submit_btn">
+                                                <button class="btn v3" type="submit">Search</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="page-access db-booking-wrap table-content table-responsive"></div>
+
+                        <center id="page-access-no-available">
+                            <p class="font-italic">
+                                <i class="fa fa-exclamation-triangle error-icon" aria-hidden="true"></i> No available roles added yet.
+                            </p>
+                        </center>
+
+                        <br />
+                        <button id="save-page-access-changes-btn" type="submit" class="btn btn-primary"><i class="lnr lnr-thumbs-up"></i> Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="page-role-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Roles (<span class="page-role-modal-count"></span>)</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group mb-3">
+                    <input id="page-role-modal-search-text" type="text" class="form-control" placeholder="Search roles here..." aria-describedby="basic-addon2" autofocus>
+                </div>
+
+                <div class="page-role-modal-grid db-booking-wrap table-content table-responsive"></div>
+
+                <div class="page-role-modal-pagination post-nav nav-res pt-50"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Scripts.Render("~/Scripts/administration/page")

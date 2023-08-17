@@ -1,0 +1,59 @@
+﻿<div class="recent-activity">
+    <div class="act-title">
+        <h5>Dashboard</h5>
+        <div class="act-title greetings">
+            <p><span id="dashboard-user-greetings"></span>. Here's what's happening!</p>
+        </div>
+    </div>
+</div>
+<div class="statistic-wrap mt-60">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-3 col-md-6 col-12">
+                <div class="statistic__item item--red">
+                    <h2 class="counter-value"><span id="total-veterans"></span></h2>
+                    <span class="desc">Total Veterans</span>
+                    <div class="icon">
+                        <img src="/Content/images/dashboard/home.png" alt="Total Veterans">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 col-12">
+                <div class="statistic__item item--blue">
+                    <h2 class="counter-value"><span id="total-beneficiaries"></span></h2>
+                    <span class="desc">Total Pensioners</span>
+                    <div class="icon">
+                        <img src="/Content/images/dashboard/review.png" alt="Total Beneficiaries">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 col-12">
+                <div class="statistic__item item--orange">
+                    <h2 class="counter-value">0</h2>
+                    <span class="desc">Accrued Request</span>
+                    <div class="icon">
+                        <img src="/Content/images/dashboard/like.png" alt="Accrued Computation Request">
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 col-12">
+                <div class="statistic__item item--green">
+                    <h2 class="counter-value"><span id="total-overremittances"></span></h2>
+                    <span class="desc">Over Remittance</span>
+                    <div class="icon">
+                        <img src="/Content/images/dashboard/bar-chart.png" alt="Over Remittance">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="dash-content spacer">
+    <div class="container-fluid">
+        <div class="row"></div>
+    </div>
+</div>
+
+@Scripts.Render("~/Scripts/api")
+@Scripts.Render("~/Scripts/dashboard")

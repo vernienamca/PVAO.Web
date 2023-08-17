@@ -1,0 +1,179 @@
+﻿<div class="recent-activity my-listing">
+    <div class="act-title">
+        <h5><span class="header-text">Settings</span></h5>
+        <p class="breadcrumbs">
+            <i class="fa fa-link"></i>
+            <a href="/Dashboard/Index">Home</a> / <span class="subheader-text">Settings</span>
+        </p>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mt-3 tab-card">
+                <div class="card-header tab-card-header">
+                    <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="general-tab" data-toggle="tab" href="#one" role="tab" aria-controls="One" aria-selected="true">General</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="smtp-tab" data-toggle="tab" href="#two" role="tab" aria-controls="One" aria-selected="true">Simple Mail Transfer Protocol</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="password-tab" data-toggle="tab" href="#three" role="tab" aria-controls="Two" aria-selected="false">Password</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade in show active p-3" id="one" role="tabpanel" aria-labelledby="one-tab">
+                        <p><mark><i>All fields with red asterisk (*) are required to fill.</i></mark></p>
+                        <br />
+
+                        <div id="general-updated-alert" class="alert alert-success" role="alert">
+                            <strong><i class="lnr lnr-bookmark"></i> Changes has been successfully saved.</strong>
+                        </div>
+
+                        <div id="general-validation-alert" class="alert alert-danger" role="alert">
+                            <strong><i class="lnr lnr-bookmark"></i> Please fill-out required fields below.</strong>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Company Name <span>*</span></label>
+                                    <input id="company-name-text" type="text" class="form-control" placeholder="E.g. Globex Corporation" autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <label>Phone Number <span>*</span></label>
+                                    <input id="phone-number-text" type="text" class="form-control" placeholder="E.g. (02) 881 0510">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>E-Mail Address <span>*</span></label>
+                                    <input id="company-email-text" type="text" class="form-control" placeholder="E.g. globex.corporation@gmail.com">
+                                </div>
+                                <div class="form-group">
+                                    <label>Mobile Number <span>*</span></label>
+                                    <input id="company-mobile-text" type="text" class="form-control" placeholder="E.g. 09567392486">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Address <span>*</span></label>
+                            <textarea id="company-address-text" class="form-control" rows="2"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>About Us</label>
+                            <textarea id="about-us-text" class="form-control" rows="4"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Facebook Account</label>
+                            <input id="facebook-account-text" type="text" class="form-control" placeholder="E.g. www.facebook.com/globexcorp" autofocus>
+                        </div>
+                        <br />
+                        <button id="save-settings-btn" type="submit" class="btn btn-primary"><i class="lnr lnr-thumbs-up"></i> Save Changes</button>
+                        <br /><br />
+                        <p class="text-dark">
+                            Created By: <span id="settings-created-by">n/a</span> &nbsp; Date Created: <span id="settings-date-created">n/a</span> &nbsp;
+                            Updated By: <span id="settings-updated-by">n/a</span> &nbsp; Date Updated: <span id="settings-date-updated">n/a</span>
+                        </p>
+                    </div>
+                    <div class="tab-pane fade in show p-3" id="two" role="tabpanel" aria-labelledby="one-tab">
+                        <div id="settings-validation-alert" class="alert alert-danger" role="alert">
+                            <strong><i class="lnr lnr-bookmark"></i> Please fill-out required fields below.</strong>
+                        </div>
+
+                        <p>SMTP (Simple Mail Transfer Protocol) server is an application that's primary purpose is to send, receive, and/or relay outgoing mail between email senders and receivers.</p>
+                        <br />
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>From E-Mail <span>*</span></label>
+                                    <input id="settings-from-email-text" type="text" class="form-control" placeholder="E.g. company.name@gmail.com">
+                                </div>
+                                <div class="form-group">
+                                    <label>From Name <span>*</span></label>
+                                    <input id="settings-from-name-text" type="text" class="form-control" placeholder="E.g. BusyBee">
+                                </div>
+                                <div class="form-group">
+                                    <label>Server Name <span>*</span></label>
+                                    <input id="settings-server-name-text" type="text" class="form-control" placeholder="E.g. smtp.gmail.com">
+                                </div>
+                                <div class="form-group">
+                                    <label>SMTP Port <span>*</span></label>
+                                    <input id="smtp-port-text" type="text" class="form-control" placeholder="E.g. 587">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Username <span>*</span></label>
+                                    <input id="settings-username-text" type="text" class="form-control" placeholder="E.g. company.name@gmail.com">
+                                </div>
+                                <div class="form-group">
+                                    <label>Password <span>*</span></label>
+                                    <input id="settings-password-text" type="text" class="form-control">
+                                </div>
+                                <div class="form-group form-check">
+                                    <input id="enable-ssl-check" type="checkbox" class="form-check-input">
+                                    <label class="form-check-label" for="enable-ssl-check">Enable SSL</label>
+                                    <small id="emailHelp" class="form-text text-muted">
+                                        The primary reason why SSL is used is to keep sensitive information sent across the Internet encrypted so that only the intended recipient can access it. This is
+                                        important because the information you send on the Internet is passed from computer to computer to get to the destination server.
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade p-3" id="three" role="tabpanel" aria-labelledby="two-tab">
+                        <div id="password-validation-alert" class="alert alert-danger" role="alert">
+                            <strong><i class="lnr lnr-bookmark"></i> Please fill-out required fields below.</strong>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Maximum Sign-On Attempts <span>*</span></label>
+                                    <input id="max-signon-attempts-text" type="number" class="form-control" value="0" min="0" autofocus>
+                                    <small id="emailHelp" class="form-text text-muted">
+                                        The number of consecutive sign-on or password verification attempts that are not correct by users.
+                                    </small>
+                                </div>
+                                <div class="form-group">
+                                    <label>Expires In (days) <span>*</span></label>
+                                    <input id="settings-expires-in-text" type="number" class="form-control" value="0" min="0">
+                                    <small id="emailHelp" class="form-text text-muted">
+                                        The number of day(s) password will be expired.
+                                    </small>
+                                </div>
+                                <div class="form-group">
+                                    <label>Minimum Password Length <span>*</span></label>
+                                    <input id="min-password-length-text" type="number" class="form-control" value="0" min="0">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Minimum Special Characters <span>*</span></label>
+                                    <input id="min-special-char-text" type="number" class="form-control" value="0" min="0">
+                                </div>
+                                <div class="form-group">
+                                    <label>Enforce Password History <span>*</span></label>
+                                    <select id="enforce-password-history-ddl" class="listing-input hero__form-input form-control custom-select">
+                                        <option value="1" selected>3 password remembered</option>
+                                        <option value="2">5 password remembered</option>
+                                        <option value="3">10 password remembered</option>
+                                    </select>
+                                    <small id="emailHelp" class="form-text text-muted">
+                                        The policy setting determines the number of unique new passwords that must be associated with a user account before an old password can be reused.
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Scripts.Render("~/Scripts/settings")

@@ -1,0 +1,192 @@
+﻿@{
+    ViewBag.Title = "Add User";
+}
+
+@using PVAOWeb.Models;
+
+<div class="recent-activity my-listing">
+    <div class="act-title">
+        <h5><span class="header-text">Add User</span></h5>
+        <p class="breadcrumbs">
+            <i class="fa fa-link"></i>
+            <a href="/Dashboard/Index">Home</a> / <a href="/Administration/Users">Users</a> / <span class="subheader-text">Add User</span>
+        </p>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mt-3 tab-card">
+                <div class="card-header tab-card-header">
+                    <ul class="nav nav-tabs card-header-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="one-tab" data-toggle="tab" href="#one" role="tab" aria-controls="One" aria-selected="true">General</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" id="user-role-tab" data-toggle="tab" href="#two" role="tab" aria-controls="Two" aria-selected="false">Assigned Roles</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade in show active p-3" id="one" role="tabpanel" aria-labelledby="one-tab">
+                        <p><mark><i>All fields with red asterisk (*) are required to fill.</i></mark></p>
+                        <br />
+
+                        <div id="user-validation-alert" class="alert alert-danger" role="alert">
+                            <strong><i class="lnr lnr-bookmark"></i> Please fill-out required fields below.</strong>
+                        </div>
+
+                        <div id="user-updated-alert" class="alert alert-success" role="alert">
+                            <strong><i class="lnr lnr-bookmark"></i> Changes has been successfully saved.</strong>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>First Name <span>*</span></label>
+                                            <input id="user-first-name-text" type="text" class="form-control" placeholder="E.g. Janine" autofocus>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Email Address <span>*</span></label>
+                                            <input id="user-email-text" type="text" class="form-control" placeholder="E.g. janine.tanchingco@gmail.com">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Username <span>*</span></label>
+                                            <input id="user-username-text" type="text" class="form-control" placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>User Status <span>*</span></label>
+                                            @using (PVAOEntities _dbContext = new PVAOEntities())
+                                            {
+                                                <select id="user-status-ddl" class="listing-input hero__form-input form-control custom-select">
+                                                    @foreach (var item in _dbContext.UserStatus.ToList())
+                                                    {
+                                                        <option value="@item.Id">@item.Description</option>
+                                                    }
+                                                </select>
+                                            }
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Last Name <span>*</span></label>
+                                            <input id="user-last-name-text" type="text" class="form-control" placeholder="E.g. Tanchingco">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Phone Number </label>
+                                            <input id="user-phone-text" type="text" class="form-control" placeholder="E.g. 189-0282">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Password <span>*</span></label>
+                                            <input id="user-password-text" type="password" class="form-control" placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Expiration Date <span>*</span></label>
+                                            <div id="datepicker-from" class="input-group date" data-date-format="dd-mm-yyyy">
+                                                <input id="user-expiration-date-text" type="text" class="form-control">
+                                                <span class="input-group-addon"><i class="lnr lnr-calendar-full"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Address <span>*</span></label>
+                                    <input id="user-address-text" type="text" class="form-control">
+                                </div>
+                                <p id="user-locked-note"><i>You may get locked out from your account after three (<span id="user-max-sign-attempts">0</span>) unsuccessful log in attempt(s).</i></p>
+
+                                <br />
+                                <button id="save-user-btn" type="submit" class="btn btn-primary"><i class="lnr lnr-thumbs-up"></i> Save Changes</button>
+                                <br /><br />
+                                <p class="text-dark">
+                                    Created By: <span id="user-created-by">n/a</span> &nbsp; Date Created: <span id="user-date-created">n/a</span> &nbsp;
+                                    Updated By: <span id="user-updated-by">n/a</span> &nbsp; Date Updated: <span id="user-date-updated">n/a</span>
+                                </p>
+                            </div>
+                            <div class="col-md-4">
+                                <center>
+                                    <input type="file" id="user-avatar-upload" style="display:none" />
+
+                                    <input id="file-name-hidden" type="hidden" />
+
+                                    <img id="user-avatar-img" src="~/Content/images/avatar/no-image-available.jpg" width="140" height="140" border="0" class="img-circle">
+                                    <h3 id="user-avatar-name-container" class="media-heading"><span id="user-avatar-name"></span></h3>
+                                    <p id="user-avatar-address-container"><span id="user-avatar-address"></span></p><br />
+                                    <p id="member-since-container"><i><small>Member since <span id="user-member-since"></span></small></i></p>
+                                    <br />
+                                    <button id="user-change-profile-btn" type="submit" class="btn btn-sm btn-primary"><i class="lnr lnr-picture"></i> Change Picture</button>
+                                </center>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade p-3" id="two" role="tabpanel" aria-labelledby="two-tab">
+                        <div id="user-role-added-alert" class="alert alert-success" role="alert">
+                            <strong><i class="lnr lnr-bookmark"></i> <span id="user-role-alert-text">Role was successfully added.</span></strong>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form class="hero__form v1 filter listing-filter property-filter">
+                                    <div class="row">
+                                        <div class="col-xl-2 col-lg-6 col-md-6 col-sm-12 col-12 py-3 pl-30 pr-0">
+                                            <div class="submit_btn">
+                                                <a class="user-add-role-btn btn v3"><i class="fa fa-plus-circle"></i> Add</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xl-8 col-lg-6 col-md-6 col-sm-12 col-12 py-3 pl-30 pr-0">
+                                            <div class="input-search">
+                                                <input id="user-role-search-text" type="text" placeholder="Search roles here...">
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-1 col-lg-6 col-md-6 col-sm-12 col-12 py-3 pl-30 pr-0">
+                                            <div class="submit_btn">
+                                                <button class="btn v3" type="submit">Search</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="user-role db-booking-wrap table-content table-responsive"></div>
+
+                        <center id="user-role-no-available">
+                            <p class="font-italic">
+                                <i class="fa fa-exclamation-triangle error-icon" aria-hidden="true"></i> No available roles added yet.
+                            </p>
+                        </center>
+
+                        <br />
+                        <button id="save-user-role-changes-btn" type="submit" class="btn btn-primary"><i class="lnr lnr-thumbs-up"></i> Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="user-role-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Roles (<span class="user-role-modal-count"></span>)</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group mb-3">
+                    <input id="user-role-modal-search-text" type="text" class="form-control" placeholder="Search roles here..." aria-describedby="basic-addon2" autofocus>
+                </div>
+
+                <div class="user-role-modal-grid db-booking-wrap table-content table-responsive"></div>
+
+                <div class="user-role-modal-pagination post-nav nav-res pt-50"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Scripts.Render("~/Scripts/administration/user")

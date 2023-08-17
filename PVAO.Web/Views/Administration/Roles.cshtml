@@ -1,0 +1,36 @@
+﻿<div class="recent-activity my-listing">
+    <div class="act-title">
+        <h5>Roles (<span class="role-count"></span>)</h5>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <form class="hero__form v1 filter listing-filter property-filter">
+                <div class="row">
+                    <div class="col-xl-2 col-lg-6 col-md-6 col-sm-12 col-12 py-3 pl-30 pr-0">
+                        <div class="submit_btn">
+                            <button class="add-role-btn btn v3" type="submit"><i class="fa fa-plus-circle"></i> Add</button>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-8 col-lg-6 col-md-6 col-sm-12 col-12 py-3 pl-30 pr-0">
+                        <div class="input-search">
+                            <input id="role-search-text" type="text" placeholder="Search roles here...">
+                        </div>
+                    </div>
+                    <div class="col-xl-1 col-lg-6 col-md-6 col-sm-12 col-12 py-3 pl-30 pr-0">
+                        <div class="submit_btn">
+                            <button class="search-role-btn btn v3" type="submit">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br />
+
+    <div class="role db-booking-wrap table-content table-responsive"></div>
+
+    <div class="role-pagination post-nav nav-res pt-50"></div>
+</div>
+
+@Scripts.Render("~/Scripts/administration/role")

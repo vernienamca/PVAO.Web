@@ -1,0 +1,221 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+
+    ViewBag.Title = "Over-remittance Details";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="viewd-item-wrap popup-wrapper">
+            <div class="details-header my-3 p-3 bg-body rounded shadow-sm">
+                <div class="most-viewed-item">
+                    <div class="most-viewed-img">
+                        <a href="#"><img src="~/Content/images/header/money.png" width="200" height="200" alt="..."></a>
+                    </div>
+                    <div class="most-viewed-detail">
+                        <h3 class="display-5 fw-normal">Over-remittance Details</h3>
+                        <br />
+                        <p id="vdms-number-name" class="list-address"></p>
+                        <p id="status-claim-number"></p>
+                    </div>
+                </div>
+            </div>
+            <p class="breadcrumbs">
+                <i class="fa fa-link"></i>
+                <a href="/Dashboard/Index">Over-remittance List</a> / <span class="subheader-text">Over-remittance Details</span>
+            </p>
+            <br />
+            <p><mark><i>All fields with red asterisk (*) are required to fill.</i></mark></p>
+            <br />
+
+            <form>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5 class="pb-2 details-section">Beneficiary Information</h5>
+                        <hr style="border-bottom: solid 1px; border-bottom-color: #009246" />
+                        <div class="form-group">
+                            <label>Claim Number <span>*</span></label>
+                            <input id="claim-number-text" type="text" class="form-control" value="OBR-NCR-20-000004" readonly />
+                        </div>
+                        <div class="form-group">
+                            <label>Beneficiary Name <span>*</span></label>
+                            <input id="beneficiary-name-text" type="text" class="form-control" value="ESCODA, ANTONIO SR. DA" readonly />
+                        </div>
+                        <div class="form-group">
+                            <label>Relation <span>*</span></label>
+                            <input id="relation-text" type="text" class="form-control" value="SPOUSE" readonly />
+                        </div>
+                        <div class="form-group">
+                            <label>Address <span>*</span></label>
+                            <input id="address-text" class="form-control" value="66 E Abada St., Loyola Heights, Quezon City, 1302" readonly />
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Mobile Number</label>
+                                    <input id="mobile-number-text" type="text" class="form-control" value="09064925352" readonly />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Email Address <span>*</span></label>
+                                    <input id="email-address-text" type="text" class="form-control" value="escoda.antonio_sr@yahoo.com" readonly />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="pb-2 details-section">Veteran Information</h5>
+                        <hr style="border-bottom: solid 1px; border-bottom-color: #009246" />
+                        <div class="form-group">
+                            <label>VDMS Number <span>*</span></label>
+                            <input id="vdms-number-text" type="text" class="form-control" value="09736" readonly />
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label>Veteran Name <span>*</span></label>
+                                    <input id="veteran-name-text" type="text" class="form-control" value="ESCODA, JOSEFINA LLANES" readonly />
+                                </div>
+
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Nationality <span>*</span></label>
+                                    <input id="nationality-text" type="text" class="form-control" value="FILIPINO" readonly />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>VFP Organization <span>*</span></label>
+                            <input id="vfp-organization-text" type="text" class="form-control" value="Philippine Veterans Legion" readonly />
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Date of Birth <span>*</span></label>
+                                    <input id="birth-date-text" type="text" class="form-control" value="09/20/1919" readonly />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Age <span>*</span></label>
+                                    <input id="age-text" type="text" class="form-control" value="101" readonly />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Gender <span>*</span></label>
+                                    <input id="gender-text" type="text" class="form-control" value="FEMALE" readonly />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Date Of Death <span>*</span></label>
+                                    <input id="date-death-text" type="text" class="form-control" value="12/15/2020" readonly />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Cause Of Death <span>*</span></label>
+                                    <input id="cause-death-text" type="text" class="form-control" value="Battle" readonly />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h5 class="pb-2 details-section">Remittances (3)</h5><br />
+                <p>Continuous pension remittances made to the account of even after the death of the veteran/pensioner.</p>
+                <hr style="border-bottom: solid 1px; border-bottom-color: #009246" />
+
+                <div class="row">
+                    <div class="row hero__form v1 filter listing-filter detail-filter">
+                        <div class="form-inline coverage-filter">
+                            <label>Coverage :</label>
+                        </div>
+                        <div class="form-inline">
+                            <label class="date-label">Date From</label>
+                            <div class="form-group mb-2">
+                                <label class="sr-only">Date From</label>
+                            </div>
+                            <div class="form-group mx-sm-3 mb-2">
+                                <div id="datepicker-from" class="input-group date" data-date-format="dd-mm-yyyy">
+                                    <input id="date-from-text" type="text" value="04/03/2021" class="form-control">
+                                    <span class="input-group-addon"><i class="lnr lnr-calendar-full"></i></span>
+                                </div>
+                            </div>
+                            <label class="date-label">Date To</label>
+                            <div class="form-group mx-sm-3 mb-2">
+                                <div id="datepicker-to" class="input-group date" data-date-format="dd-mm-yyyy">
+                                    <input id="date-to-text" type="text" value="04/04/2021" class="form-control">
+                                    <span class="input-group-addon"><i class="lnr lnr-calendar-full"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <table id="issued-check-table" class="table table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Cheque Number</th>
+                                    <th scope="col">Bank Code</th>
+                                    <th scope="col">Bank Name</th>
+                                    <th scope="col">Branch</th>
+                                    <th scope="col">Date Issued</th>
+                                    <th scope="col" class="text-right">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="text-left">0001037401</td>
+                                    <td class="text-left">AFP</td>
+                                    <td class="text-left">AFP SAVINGS AND LOAN ASSN</td>
+                                    <td class="text-left">BAGUIO CITY BRANCH</td>
+                                    <td class="text-left">01/23/2021</td>
+                                    <td class="text-right">2,500.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">0007276612</td>
+                                    <td class="text-left">AUB</td>
+                                    <td class="text-left">ASIA UNITED BANK</td>
+                                    <td class="text-left">BINONDO BRANCH</td>
+                                    <td class="text-left">02/01/2021</td>
+                                    <td class="text-right">2,320.12</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">0007278721</td>
+                                    <td class="text-left">DBP</td>
+                                    <td class="text-left">DEVT BANK OF THE PHIL</td>
+                                    <td class="text-left">BACOLOD BRANCH</td>
+                                    <td class="text-left">02/06/2021</td>
+                                    <td class="text-right">1,678.88</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr class="total-footer">
+                                    <td class="right font-weight-bold" colspan="5">Total Amount : </td>
+                                    <td class="right font-weight-bold">6,499.00</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button id="compute-btn" type="button" class="btn btn-primary"><i class="far ion-calculator"></i> Compute</button>
+                            <button id="submit-approval-btn" type="button" class="btn btn-success"><i class="far ion-thumbsup"></i> Submit for Approval</button>
+                            <button id="print-btn" type="button" class="btn btn-info"><i class="far ion-printer"></i> Print</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@Scripts.Render("~/Scripts/overremittance")
+
+

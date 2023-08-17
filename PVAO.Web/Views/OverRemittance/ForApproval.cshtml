@@ -1,0 +1,55 @@
+﻿
+<div id="over-remittance-for-approval-list" class="recent-activity my-listing">
+    <div class="act-title">
+        <h5><span class="header-text"></span></h5>
+        <p>For approval over-remittances for late termination of DW - Disability Pension (Surviving Spouse), DC - Disability Pension (minor) &<br /> TP - Death Pension (Parent).</p>
+
+        <p class="breadcrumbs">
+            <i class="fa fa-link"></i>
+            <a href="/Dashboard/Index">Home</a> / <a href="/OverRemittance/Index">Over-remittance Option</a> / <span class="subheader-text">For Approval List</span>
+        </p>
+    </div>
+    <div class="row">
+        <form class="row hero__form v1 filter listing-filter list-filter">
+            <div class="bs-dropdown dropdown show"></div>
+
+            <div class="yr-dropdown dropdown show"></div>
+
+            <div class="mt-dropdown dropdown show"></div>
+
+            <div class="input-search">
+                <input id="search-overremittance-text" type="text" placeholder="Search over-remittances here...">
+            </div>
+        </form>
+        <div id="wrapper" class="col-md-12">
+            <section>
+                <div class="data-container" style="overflow-x:auto;">
+                    <table id="overremittance-table" class="table table-hover"></table>
+                    <center id="no-available-overremittances">
+                        <p class="font-italic">
+                            <i class="fa fa-exclamation-triangle error-icon" aria-hidden="true"></i> No over-remittances listed yet.
+                        </p>
+                    </center>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-7"></div>
+                    <div class="col-md-5">
+                        <button id="export-excel-button" type="button" class="btn btn-success"><i class="far fa-file-excel"></i> Export to Excel</button>
+                        <button id="export-pdf-button" type="button" class="btn btn-danger"><i class="far fa-file-pdf"></i> Export to PDF</button>
+                    </div>
+                </div>
+                <br /><br />
+            </section>
+
+            <div class="overremittance-pagination"></div>
+
+        </div>
+    </div>
+</div>
+
+@Scripts.Render("~/Scripts/layout")
+@Scripts.Render("~/Scripts/overremittance/forapproval")
+@Scripts.Render("~/Scripts/api")
+@Scripts.Render("~/Scripts/excelhelper")
+@Scripts.Render("~/Scripts/pdfhelper")

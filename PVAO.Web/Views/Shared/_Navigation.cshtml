@@ -1,0 +1,65 @@
+﻿@using PVAOWeb.Models;
+
+@using (PVAOEntities _dbContext = new PVAOEntities())
+{
+    if (Session["UserID"] != null)
+    {
+        int userId = (int)Session["UserID"];
+
+        List<int> userRoles = _dbContext.UserRoles.Where(x => x.UserId == userId).Select(m => m.RoleId).ToList();
+
+        List<int> pageAccess = _dbContext.PageAccesses.Where(x => userRoles.Contains(x.RoleId)).GroupBy(g => g.PageId).Select(m => m.Key).ToList();
+
+        var subMenus = _dbContext.Pages.Where(x => pageAccess.Contains(x.Id) && x.Active).ToList();
+
+        var parentMenus = subMenus.GroupBy(g => g.ParentMenu).Select(m => m.Key).ToList();
+
+        var pages = subMenus.Union(_dbContext.Pages.Where(x => parentMenus.Contains(x.Id))).ToList();
+
+        <div class="menu-sidebar__content js-scrollbar2">
+            <nav class="navbar-sidebar2">
+                @{
+                    if (pages.Count() == 0)
+                    {
+                        <p class="text-center">--- You don't have access yet ---</p>
+                    }
+                }
+
+            <ul class="list-unstyled navbar__list">
+                @foreach (var item in pages.Where(x => parentMenus.Contains(x.Id)).OrderBy(x => x.Order).ToList())
+                {
+                    if (pages.Where(x => x.ParentMenu == @item.ParentMenu & !x.IsParent).Count() != 0)
+                    {
+                        string absolutePath = HttpContext.Current.Request.Url.AbsolutePath.Split('/')[1];
+                        string jsArrow = absolutePath == item.PageName ? "js-arrow open" : "js-arrow";
+                        string display = absolutePath == item.PageName ? "display: block;" : "display: none;";
+
+                        <li class="has-sub">
+                            <a class="@jsArrow" href="#">
+                                <i class="@item.Icon"></i>@item.PageName
+                            </a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list" style="@display">
+                                @foreach (var sub in pages.Where(x => x.ParentMenu == item.ParentMenu && !x.IsParent).ToList())
+                                {
+                                    <li>
+                                        <a href="@sub.UrlPath">@sub.PageName</a>
+                                    </li>
+                                }
+                            </ul>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a href="@item.UrlPath">
+                                <i class="@item.Icon"></i>@item.PageName
+                            </a>
+                        </li>
+                    }
+                }
+            </ul>
+            </nav>
+        </div>
+    }
+}
+

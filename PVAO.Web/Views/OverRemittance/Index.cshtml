@@ -1,0 +1,53 @@
+﻿<div class="recent-activity">
+    <div class="act-title">
+        <h5>Over-remittance Option</h5>
+        <p class="breadcrumbs">
+            <i class="fa fa-link"></i>
+            <a href="/Dashboard/Index">Dashboard</a> / <span class="subheader-text">Over-remittance Option</span>
+        </p>
+
+        <br />
+
+        <div class="act-title greetings">
+            <p class="text-center">Please select an option below to view either over-remittance or for approval list.</p>
+        </div>
+    </div>
+</div>
+<div id="over-remittance-index" class="statistic-wrap mt-60">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-6 col-md-6 col-12">
+                <a href="@Url.Action("List", "OverRemittance")">
+                    <div class="statistic__item item--red">
+                        <h3 class="counter-value total-list">Over-remittance List (0)</h3>
+                        <br />
+                        <span class="desc">Over-remittance for late termination of DW, DC & TP.</span>
+                        <div class="icon">
+                            <img src="/Content/images/dashboard/home.png" alt="Over-remittance List">
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xl-6 col-md-6 col-12">
+                <a href="@Url.Action("ForApproval", "OverRemittance")">
+                    <div class="statistic__item item--blue">
+                        <h3 class="counter-value for-approval">For Approval List(0)</h3>
+                        <br />
+                        <span class="desc">Calculated over-remittance list for approval.</span>
+                        <div class="icon">
+                            <img src="/Content/images/dashboard/review.png" alt="For Approval List">
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="dash-content">
+    <div class="container-fluid">
+        <div class="row"></div>
+    </div>
+</div>
+
+@Scripts.Render("~/Scripts/dashboard")

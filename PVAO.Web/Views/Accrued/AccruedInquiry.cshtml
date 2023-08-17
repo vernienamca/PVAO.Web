@@ -1,0 +1,38 @@
+﻿<div id="accrued-inquiry" class="recent-activity my-listing">
+    <div class="act-title">
+        <h2><span class="header-text">Accrued Inquiry</span></h2>
+        <p class="breadcrumbs">
+            <i class="fa fa-link"></i>
+            <a href="/Dashboard/Index">Home</a> / <a href="/Accrued/Index">Accrued Option</a> / <span class="subheader-text">Accrued Inquiry</span>
+        </p>
+    </div>
+    <div class="row">
+        <form class="row hero__form v1 filter listing-filter list-filter">
+            <div class="button">
+                <a class="btn v3" href="#" data-toggle="modal" data-target="#pensioner-modal"><i class="fa fa-search-plus"></i> Choose Pensioners to process</a>
+            </div>
+            <div class="modal fade bd-example-modal-lg" id="pensioner-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Select pensioners</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <br />
+                            <form id="upload_form" enctype="multipart/form-data" method="post">
+                                <table id="beneficiary-list" class="table-bordered"></table>
+                                <br/>
+                                <button id="beneficiary-ok-button" type="button" class="btn btn-primary"> Ok</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@Scripts.Render("~/Scripts/accrued")

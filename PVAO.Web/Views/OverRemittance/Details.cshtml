@@ -1,0 +1,244 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+
+    ViewBag.Title = "Over-remittance Details";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="viewd-item-wrap popup-wrapper">
+            <div class="details-header my-3 p-3 bg-body rounded shadow-sm">
+                <div class="most-viewed-item">
+                    <div class="most-viewed-img">
+                        <a href="#"><img src="~/Content/images/header/money.png" width="200" height="200" alt="..."></a>
+                    </div>
+                    <div class="most-viewed-detail">
+                        <h3 class="display-5 fw-normal">Over-remittance Details</h3>
+                        <p id="benefit-status"></p>
+                        <p id="vdms-number-name" class="list-address"></p>
+                        <p id="status-claim-number"></p>
+                    </div>
+                </div>
+            </div>
+            <p class="breadcrumbs">
+                <i class="fa fa-link"></i>
+                <a href="/Dashboard/Index">Over-remittance List</a> / <span class="subheader-text">Over-remittance Details</span>
+            </p>
+            <br />
+            <p><mark><i>All fields with red asterisk (*) are required to fill.</i></mark></p>
+            <br />
+
+            <div id="alert-div" class="alert alert-success alert-dismissible fade show invisible-element" role="alert">
+                <strong><i class="fa fa-info-circle"></i> <span class="message">Total over-remittance amount has been successfully computed. You can now submit it for approval.</span> </strong>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <form>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5 class="pb-2 details-section">Pensioner Information</h5>
+                        <hr style="border-bottom: solid 1px; border-bottom-color: #009246" />
+
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Claim Number <span>*</span></label>
+                                    <input id="claim-number-text" type="text" class="form-control" value="OBR-NCR-20-000004" readonly />
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label>Benefit Status <span>*</span></label>
+                                    <input id="benefit-status-text" type="text" class="form-control" readonly />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="form-group">
+                                    <label>Pensioner Name <span>*</span></label>
+                                    <input id="pensioner-name-text" type="text" class="form-control" readonly />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Relation <span>*</span></label>
+                                    <input id="relation-text" type="text" class="form-control" readonly />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Address <span>*</span></label>
+                            <input id="address-text" class="form-control" readonly />
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Mobile Number</label>
+                                    <input id="mobile-number-text" type="text" class="form-control" readonly />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Email Address <span>*</span></label>
+                                    <input id="email-address-text" type="text" class="form-control" readonly />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="pb-2 details-section">Veteran Information</h5>
+                        <hr style="border-bottom: solid 1px; border-bottom-color: #009246" />
+                        <div class="form-group">
+                            <label>VDMS Number <span>*</span></label>
+                            <input id="vdms-number-text" type="text" class="form-control" readonly />
+                        </div>
+                        <div class="form-group">
+                            <label>Veteran Name <span>*</span></label>
+                            <input id="veteran-name-text" type="text" class="form-control" readonly />
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Date of Birth <span>*</span></label>
+                                    <input id="birth-date-text" type="text" class="form-control" readonly />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Age <span>*</span></label>
+                                    <input id="age-text" type="text" class="form-control" readonly />
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Gender <span>*</span></label>
+                                    <input id="gender-text" type="text" class="form-control" readonly />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Date Of Death <span>*</span></label>
+                                    <input id="date-death-text" type="text" class="form-control" readonly />
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Cause Of Death <span>*</span></label>
+                                    <input id="cause-death-text" type="text" class="form-control" readonly />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <h5 class="pb-2 details-section">Bank Information</h5>
+                        <hr style="border-bottom: solid 1px; border-bottom-color: #009246" />
+
+                        <table id="pay-period-table" class="table table-hover"></table>
+
+                        <div id="computed-amount-div" class="recent-activity invisible-element">
+                            <ul class="act-wrap">
+                                <li class="alert br-o fade show">
+                                    <strong>Total Over-remittance Amount: </strong> <span id="total-overremittance-amount">0.00</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <hr id="approved-rejected-line" class="dotted-line invisible-element">
+
+                        <p id="approved-rejected-status"></p>
+                        <p id="approved-rejected-by"></p>
+                        <p id="date-approved-reject"></p>
+                        <p id="reject-remarks"></p>
+
+                        <hr class="dotted-line">
+
+                        <button id="approve-btn" type="button" class="btn btn-success"><i class="far ion-thumbsup"></i> Approved</button>
+                        <button id="reject-btn" type="button" class="btn btn-danger"><i class="far ion-thumbsdown"></i> Reject</button>
+                        <button id="compute-btn" type="button" class="btn btn-primary"><i class="far ion-calculator"></i> Compute</button>
+                        <button id="submit-approval-btn" type="button" class="btn btn-success"><i class="far ion-thumbsup"></i> Submit for Approval</button>
+                        <button id="close-btn" type="button" class="btn btn-dark"><i class="far ion-close"></i> Close</button>
+
+                        <br /><br />
+                        <p class="text-dark">
+                            <strong>Computed By:</strong> <span id="computed-by">n/a</span> &nbsp; <strong>Date Computed:</strong> <span id="date-computed">n/a</span> &nbsp;
+                            <strong>Submitted By:</strong> <span id="submitted-by">n/a</span> &nbsp; <strong>Date Submitted:</strong> <span id="date-submitted">n/a</span>
+                        </p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="submit-confirmation-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h3>Submit For Approval</h3>
+                <p>Are you sure you want to submit this over-remittance for approval?</p>
+                <br />
+                <div class="clearfix">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>&nbsp;
+                    <button type="button" class="btn btn-success submit-approval-btn">Yes, proceed</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="approve-confirmation-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <h3>Approve Over-remittance</h3>
+                <p>Are you sure you want to approve this over-remittance? You can't undo this action once clicked.</p>
+                <br />
+                <div class="clearfix">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>&nbsp;
+                    <button type="button" class="btn btn-success approve-btn">Yes, approve it</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="reject-reason-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Reject Over-remittance</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-danger reason-rejection-alert invisible-element" role="alert">
+                    <strong><i class="lnr lnr-bookmark"></i> Reason for rejection is required.</strong>
+                </div>
+
+                <form id="upload_form" method="post">
+                    <div class="form-group">
+                        <label>Reason for Rejection <span>*</span></label>
+                        <textarea id="reason-rejection-text" class="form-control" rows="3"></textarea>
+                    </div>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>&nbsp;
+                    <button type="button" class="btn btn-danger reject-btn">Yes, reject it</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@Scripts.Render("~/Scripts/overremittance")
+

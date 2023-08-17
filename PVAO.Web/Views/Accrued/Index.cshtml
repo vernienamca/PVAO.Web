@@ -1,0 +1,65 @@
+﻿<div class="recent-activity">
+    <div class="act-title">
+        <h5>Accrued Option</h5>
+        <p class="breadcrumbs">
+            <i class="fa fa-link"></i>
+            <a href="/Dashboard/Index">Dashboard</a> / <span class="subheader-text">Accrued Option</span>
+        </p>
+
+        <br />
+
+        <div class="act-title greetings">
+            <p class="text-center">Please select an option below to view either accrued, for approval list or create an SOD entry.</p>
+        </div>
+    </div>
+</div>
+<div class="statistic-wrap mt-60">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-4 col-md-6 col-12">
+                <a href="@Url.Action("List", "Accrued")">
+                    <div class="statistic__item item--red">
+                        <h3 class="counter-value">Accrued List (25)</h3>
+                        <br />
+                        <span class="desc">Computation request of uncollected pension.</span>
+                        <div class="icon">
+                            <img src="/Content/images/dashboard/home.png" alt="Over-remittance List">
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xl-4 col-md-6 col-12">
+                <a href="@Url.Action("AccruedInquiry", "Accrued")">
+                    <div class="statistic__item item--blue">
+                        <h3 class="counter-value">Accrued Inquiry</h3>
+                        <br />
+                        <span class="desc">Computed uncollected pension list for approval.<br /> </span>
+                        <div class="icon">
+                            <img src="/Content/images/dashboard/review.png" alt="For Approval List">
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xl-4 col-md-6 col-12">
+                <a href="@Url.Action("SOD", "Accrued")">
+                    <div class="statistic__item item--green">
+                        <h3 class="counter-value">SOD Entry (4)</h3>
+                        <br />
+                        <span class="desc">Create an statement of distribution entry.</span>
+                        <div class="icon">
+                            <img src="/Content/images/dashboard/bar-chart.png" alt="Over Remittance">
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="dash-content">
+    <div class="container-fluid">
+        <div class="row"></div>
+    </div>
+</div>
+
+@Scripts.Render("~/Scripts/dashboard")

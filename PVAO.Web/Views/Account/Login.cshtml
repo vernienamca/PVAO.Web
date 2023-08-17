@@ -1,0 +1,60 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Philippine Veterans Affairs Office" />
+    <link rel="icon" type="image/png" href="#" />
+    <title>Philippine Veterans Affairs Office - Web Portal</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="~/Scripts/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+    <link href="~/Content/css/preloader.css" rel="stylesheet" />
+    @Styles.Render("~/Content/login")
+</head>
+<body>
+    <div id="page-loader">
+        <div id="loader-logo"></div>
+    </div>
+    <div id="login-wrapper" class="container" data-autheticate-user-url="@Url.Action("Authenticate", "Account")" data-save-audit-log-url="@Url.Action("SaveAuditLog", "AuditLog")"
+         data-inject-user-session-url="@Url.Action("InjectUserSession", "Account")">
+        <div class="row">
+            <div class="col-sm-6 col-md-4 col-md-offset-4">
+                <div class="account-wall">
+                    <img class="logo" src="@Url.Content("~/Content/images/pvao-logo.png")" alt="">
+                    <form class="form-signin">
+                        <p class="m-t text-center">Welcome to Philippine Veterans Affairs Office web portal. Login to continue.</p>
+                        <p class="validation"></p>
+                        <br />
+                        <input id="username-text" type="text" class="form-control" placeholder="Username" value="admin" required autofocus>
+                        <input id="password-text" type="password" class="form-control" placeholder="Password" value="admin" required>
+                        <a id="login-btn" type="button" href="@Url.Action("Index", "Home")" class="btn btn-lg btn-login btn-block">Log in</a>
+                        <a id="redirect-home-btn" type="button" href="" class="btn btn-lg btn-pvao-green btn-block invisible-element">[Redirect]</a>
+                        <a href="#" class="text-pvao-green text-etst">Forgot your password?</a>
+                        <span class="clearfix"></span>
+                    </form>
+                    <br />
+                    <p class="m-t text-center">
+                        Copyright © @DateTime.Now.Year
+                        <strong class="text-pvao-green">Philippine Veterans<br />Affairs Office</strong>.
+                        All Rights Reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        localStorage.setItem("applicationApiUrl", JSON.stringify({
+            baseUrl: 'http://localhost:55653/api'
+        }));
+    });
+</script>
+@Scripts.Render("~/Scripts/authenticate")

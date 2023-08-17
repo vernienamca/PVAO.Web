@@ -1,0 +1,59 @@
+﻿
+<div id="accrued-list" class="recent-activity my-listing">
+    <div class="act-title">
+        <h5><span class="header-text"></span></h5>
+        <p>Accrued</p>
+
+        <p class="breadcrumbs">
+            <i class="fa fa-link"></i>
+            <a href="/Dashboard/Index">Home</a> / <a href="/Accrued/Index">Accrued Option</a> / <span class="subheader-text">Accrued List</span>
+        </p>
+    </div>
+    <div class="row">
+        <form class="row hero__form v1 filter listing-filter list-filter">
+            <div class="bs-dropdown dropdown show"></div>
+
+            <div class="yr-dropdown dropdown show"></div>
+
+            <div class="mt-dropdown dropdown show"></div>
+
+            <div class="input-search">
+                <input id="search-accrued-text" type="text" placeholder="Search accrued here...">
+            </div>
+        </form>
+        <div id="wrapper" class="col-md-12">
+            <section>
+                <div class="data-container">
+                    <table id="accrued-table" class="table table-hover"></table>
+                    <center id="no-available-accrueds">
+                        <p class="font-italic">
+                            <i class="fa fa-exclamation-triangle error-icon" aria-hidden="true"></i> No accrued listed yet.
+                        </p>
+                    </center>
+                </div>
+                <div class="row">
+                    <div class="col-md-10"></div>
+                    <div class="col-md-2">
+                        <div id="pagination-accrued"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-7"></div>
+                    <div class="col-md-5">
+                        <button id="export-excel-button" type="button" class="btn btn-success"><i class="far fa-file-excel"></i> Export to Excel</button>
+                        <button id="export-pdf-button" type="button" class="btn btn-danger"><i class="far fa-file-pdf"></i> Export to PDF</button>
+                    </div>
+                </div>
+                <br /><br />
+            </section>
+
+            <div class="accrued-pagination"></div>
+
+        </div>
+    </div>
+</div>
+@Scripts.Render("~/Scripts/layout")
+@Scripts.Render("~/Scripts/accrued")
+@Scripts.Render("~/Scripts/api")
+@Scripts.Render("~/Scripts/excelhelper")
+@Scripts.Render("~/Scripts/pdfhelper")
