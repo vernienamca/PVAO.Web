@@ -183,6 +183,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PVAOModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\RefOverRemittance.cs">
+      <DependentUpon>PVAOModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Role.cs">
       <DependentUpon>PVAOModel.tt</DependentUpon>
     </Compile>

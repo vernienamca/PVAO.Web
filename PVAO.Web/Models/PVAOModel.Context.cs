@@ -25,6 +25,7 @@ namespace PVAOWeb.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<RefOverRemittance> RefOverRemittances { get; set; }
         public virtual DbSet<C__EFMigrationsHistory> C__EFMigrationsHistory { get; set; }
         public virtual DbSet<BenefitStatu> BenefitStatus { get; set; }
         public virtual DbSet<Company> Companies { get; set; }

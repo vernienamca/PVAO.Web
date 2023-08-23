@@ -5,17 +5,18 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="019817e07f424c8f814dee51d360356d" Name="Diagram1" ZoomLevel="94">
-        <EntityTypeShape EntityType="PVAOModel.C__EFMigrationsHistory" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="PVAOModel.BenefitStatu" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PVAOModel.RefOverRemittance" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PVAOModel.C__EFMigrationsHistory" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PVAOModel.BenefitStatu" Width="1.5" PointX="2.75" PointY="3.75" />
         <EntityTypeShape EntityType="PVAOModel.Company" Width="1.5" PointX="4.75" PointY="0.75" />
-        <EntityTypeShape EntityType="PVAOModel.Page" Width="1.5" PointX="0.75" PointY="4.75" />
-        <EntityTypeShape EntityType="PVAOModel.PageAccess" Width="1.5" PointX="2.75" PointY="4.75" />
-        <EntityTypeShape EntityType="PVAOModel.PasswordHistory" Width="1.5" PointX="4.75" PointY="4.75" />
-        <EntityTypeShape EntityType="PVAOModel.Role" Width="1.5" PointX="6.75" PointY="0.75" />
-        <EntityTypeShape EntityType="PVAOModel.Setting" Width="1.5" PointX="6.75" PointY="4.75" />
+        <EntityTypeShape EntityType="PVAOModel.Page" Width="1.5" PointX="4.75" PointY="4.75" />
+        <EntityTypeShape EntityType="PVAOModel.PageAccess" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PVAOModel.PasswordHistory" Width="1.5" PointX="6.75" PointY="4.75" />
+        <EntityTypeShape EntityType="PVAOModel.Role" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="PVAOModel.Setting" Width="1.5" PointX="6.75" PointY="7.75" />
         <EntityTypeShape EntityType="PVAOModel.UserRole" Width="1.5" PointX="8.75" PointY="0.75" />
-        <EntityTypeShape EntityType="PVAOModel.User" Width="1.5" PointX="2.75" PointY="8.75" />
-        <EntityTypeShape EntityType="PVAOModel.UserStatu" Width="1.5" PointX="8.75" PointY="4.75" />
+        <EntityTypeShape EntityType="PVAOModel.User" Width="1.5" PointX="8.75" PointY="4.75" />
+        <EntityTypeShape EntityType="PVAOModel.UserStatu" Width="1.5" PointX="2.75" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -29,6 +29,7 @@ namespace PVAOWeb.Models
         public int EnforcePasswordHistory { get; set; }
         public int ActivationLinkExpiresIn { get; set; }
         public string BaseUrl { get; set; }
+        public Nullable<int> OverRemittanceApprover { get; set; }
         public int CreatedBy { get; set; }
         public System.DateTime DateCreated { get; set; }
         public Nullable<int> UpdatedBy { get; set; }

@@ -5,18 +5,27 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="PVAOModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'PVAO.dbo.__EFMigrationsHistory' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="__EFMigrationsHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ProductVersion" />
           </Key>
           <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'PVAO.dbo.BenefitStatus' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="BenefitStatus">
           <Key>
             <PropertyRef Name="Id" />
+            <PropertyRef Name="Description" />
+            <PropertyRef Name="Prefix" />
+            <PropertyRef Name="CreatedBy" />
+            <PropertyRef Name="DateCreated" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="Prefix" Type="nvarchar" MaxLength="15" Nullable="false" />
           <Property Name="Claimant" Type="nvarchar" MaxLength="150" />
@@ -25,11 +34,20 @@
           <Property Name="UpdatedBy" Type="int" />
           <Property Name="DateUpdated" Type="datetime2" Precision="7" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'PVAO.dbo.Company' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Company">
           <Key>
             <PropertyRef Name="Id" />
+            <PropertyRef Name="CompanyName" />
+            <PropertyRef Name="Address" />
+            <PropertyRef Name="EmailAddress" />
+            <PropertyRef Name="PhoneNumber" />
+            <PropertyRef Name="MobileNumber" />
+            <PropertyRef Name="AboutUs" />
+            <PropertyRef Name="LogoPath" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="CompanyName" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="Address" Type="nvarchar" MaxLength="650" Nullable="false" />
           <Property Name="EmailAddress" Type="nvarchar" MaxLength="150" Nullable="false" />
@@ -39,11 +57,22 @@
           <Property Name="Facebook" Type="nvarchar" MaxLength="150" />
           <Property Name="LogoPath" Type="nvarchar" MaxLength="250" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'PVAO.dbo.Page' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Page">
           <Key>
             <PropertyRef Name="Id" />
+            <PropertyRef Name="PageName" />
+            <PropertyRef Name="Description" />
+            <PropertyRef Name="UrlPath" />
+            <PropertyRef Name="Order" />
+            <PropertyRef Name="IsParent" />
+            <PropertyRef Name="Visible" />
+            <PropertyRef Name="AccessibleByAll" />
+            <PropertyRef Name="Active" />
+            <PropertyRef Name="DateCreated" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="PageName" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="UrlPath" Type="nvarchar" MaxLength="150" Nullable="false" />
@@ -56,13 +85,21 @@
           <Property Name="Active" Type="bit" Nullable="false" />
           <Property Name="DateCreated" Type="datetime2" Precision="7" Nullable="false" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'PVAO.dbo.PageAccess' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="PageAccess">
           <Key>
             <PropertyRef Name="Id" />
             <PropertyRef Name="PageId" />
             <PropertyRef Name="RoleId" />
+            <PropertyRef Name="CanCreate" />
+            <PropertyRef Name="CanRead" />
+            <PropertyRef Name="CanUpdate" />
+            <PropertyRef Name="CanDelete" />
+            <PropertyRef Name="CreatedBy" />
+            <PropertyRef Name="DateCreated" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="PageId" Type="int" Nullable="false" />
           <Property Name="RoleId" Type="int" Nullable="false" />
           <Property Name="CanCreate" Type="bit" Nullable="false" />
@@ -74,21 +111,49 @@
           <Property Name="UpdatedBy" Type="int" />
           <Property Name="DateUpdated" Type="datetime2" Precision="7" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'PVAO.dbo.PasswordHistory' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="PasswordHistory">
           <Key>
             <PropertyRef Name="Id" />
             <PropertyRef Name="UserID" />
+            <PropertyRef Name="Password" />
+            <PropertyRef Name="DateCreated" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="UserID" Type="int" Nullable="false" />
           <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
           <Property Name="DateCreated" Type="datetime2" Precision="7" Nullable="false" />
         </EntityType>
-        <EntityType Name="Role">
+        <EntityType Name="RefOverRemittance">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="ClaimNumber" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="BenefitStatus" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="VDMSNumber" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PensionerName" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="DateComputed" Type="datetime2" Precision="7" Nullable="false" />
+          <Property Name="ComputedBy" Type="int" Nullable="false" />
+          <Property Name="DateSubmitted" Type="datetime2" Precision="7" />
+          <Property Name="SubmittedBy" Type="int" />
+          <Property Name="ApprovedRejectedBy" Type="int" />
+          <Property Name="ApprovedRejectedDate" Type="datetime2" Precision="7" />
+          <Property Name="Remarks" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'PVAO.dbo.Role' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="RoleName" />
+            <PropertyRef Name="Description" />
+            <PropertyRef Name="CreatedBy" />
+            <PropertyRef Name="DateCreated" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="RoleName" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="350" Nullable="false" />
           <Property Name="CreatedBy" Type="int" Nullable="false" />
@@ -96,11 +161,28 @@
           <Property Name="UpdatedBy" Type="int" />
           <Property Name="DateUpdated" Type="datetime2" Precision="7" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'PVAO.dbo.Settings' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Settings">
           <Key>
             <PropertyRef Name="Id" />
+            <PropertyRef Name="FromEmail" />
+            <PropertyRef Name="FromName" />
+            <PropertyRef Name="ServerName" />
+            <PropertyRef Name="SMTPPort" />
+            <PropertyRef Name="Username" />
+            <PropertyRef Name="Password" />
+            <PropertyRef Name="EnableSSL" />
+            <PropertyRef Name="MaxSignOnAttempts" />
+            <PropertyRef Name="ExpiresIn" />
+            <PropertyRef Name="MinPasswordLength" />
+            <PropertyRef Name="MinSpecialCharacters" />
+            <PropertyRef Name="EnforcePasswordHistory" />
+            <PropertyRef Name="ActivationLinkExpiresIn" />
+            <PropertyRef Name="CreatedBy" />
+            <PropertyRef Name="DateCreated" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="FromEmail" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="FromName" Type="nvarchar" MaxLength="150" Nullable="false" />
           <Property Name="ServerName" Type="nvarchar" MaxLength="250" Nullable="false" />
@@ -115,18 +197,23 @@
           <Property Name="EnforcePasswordHistory" Type="int" Nullable="false" />
           <Property Name="ActivationLinkExpiresIn" Type="int" Nullable="false" />
           <Property Name="BaseUrl" Type="nvarchar" MaxLength="150" />
+          <Property Name="OverRemittanceApprover" Type="int" />
           <Property Name="CreatedBy" Type="int" Nullable="false" />
           <Property Name="DateCreated" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="UpdatedBy" Type="int" />
           <Property Name="DateUpdated" Type="datetime2" Precision="7" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'PVAO.dbo.UserRole' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="UserRole">
           <Key>
             <PropertyRef Name="Id" />
             <PropertyRef Name="UserId" />
             <PropertyRef Name="RoleId" />
+            <PropertyRef Name="CreatedBy" />
+            <PropertyRef Name="DateCreated" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="UserId" Type="int" Nullable="false" />
           <Property Name="RoleId" Type="int" Nullable="false" />
           <Property Name="CreatedBy" Type="int" Nullable="false" />
@@ -134,11 +221,25 @@
           <Property Name="UpdatedBy" Type="int" />
           <Property Name="DateUpdated" Type="datetime2" Precision="7" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'PVAO.dbo.Users' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="Id" />
+            <PropertyRef Name="LastName" />
+            <PropertyRef Name="FirstName" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="Password" />
+            <PropertyRef Name="EmailAddress" />
+            <PropertyRef Name="Address" />
+            <PropertyRef Name="UserStatus" />
+            <PropertyRef Name="SignOnAttempts" />
+            <PropertyRef Name="LoggedIn" />
+            <PropertyRef Name="ExpirationDate" />
+            <PropertyRef Name="CreatedBy" />
+            <PropertyRef Name="DateCreated" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="LastName" Type="nvarchar" MaxLength="35" Nullable="false" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="35" Nullable="false" />
           <Property Name="UserName" Type="nvarchar" MaxLength="25" Nullable="false" />
@@ -157,11 +258,16 @@
           <Property Name="UpdatedBy" Type="int" />
           <Property Name="DateUpdated" Type="datetime2" Precision="7" />
         </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'PVAO.dbo.UserStatus' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="UserStatus">
           <Key>
             <PropertyRef Name="Id" />
+            <PropertyRef Name="Description" />
+            <PropertyRef Name="CreatedBy" />
+            <PropertyRef Name="DateCreated" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Description" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="CreatedBy" Type="int" Nullable="false" />
           <Property Name="DateCreated" Type="datetime2" Precision="7" Nullable="false" />
@@ -169,23 +275,162 @@
           <Property Name="DateUpdated" Type="datetime2" Precision="7" />
         </EntityType>
         <EntityContainer Name="PVAOModelStoreContainer">
-          <EntitySet Name="__EFMigrationsHistory" EntityType="Self.__EFMigrationsHistory" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="BenefitStatus" EntityType="Self.BenefitStatus" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Company" EntityType="Self.Company" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Page" EntityType="Self.Page" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PageAccess" EntityType="Self.PageAccess" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="PasswordHistory" EntityType="Self.PasswordHistory" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Settings" EntityType="Self.Settings" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="UserStatus" EntityType="Self.UserStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RefOverRemittance" EntityType="Self.RefOverRemittance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="__EFMigrationsHistory" EntityType="Self.__EFMigrationsHistory" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [__EFMigrationsHistory].[MigrationId] AS [MigrationId], 
+    [__EFMigrationsHistory].[ProductVersion] AS [ProductVersion]
+    FROM [dbo].[__EFMigrationsHistory] AS [__EFMigrationsHistory]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="BenefitStatus" EntityType="Self.BenefitStatus" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [BenefitStatus].[Id] AS [Id], 
+    [BenefitStatus].[Description] AS [Description], 
+    [BenefitStatus].[Prefix] AS [Prefix], 
+    [BenefitStatus].[Claimant] AS [Claimant], 
+    [BenefitStatus].[CreatedBy] AS [CreatedBy], 
+    [BenefitStatus].[DateCreated] AS [DateCreated], 
+    [BenefitStatus].[UpdatedBy] AS [UpdatedBy], 
+    [BenefitStatus].[DateUpdated] AS [DateUpdated]
+    FROM [dbo].[BenefitStatus] AS [BenefitStatus]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Company" EntityType="Self.Company" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Company].[Id] AS [Id], 
+    [Company].[CompanyName] AS [CompanyName], 
+    [Company].[Address] AS [Address], 
+    [Company].[EmailAddress] AS [EmailAddress], 
+    [Company].[PhoneNumber] AS [PhoneNumber], 
+    [Company].[MobileNumber] AS [MobileNumber], 
+    [Company].[AboutUs] AS [AboutUs], 
+    [Company].[Facebook] AS [Facebook], 
+    [Company].[LogoPath] AS [LogoPath]
+    FROM [dbo].[Company] AS [Company]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Page" EntityType="Self.Page" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Page].[Id] AS [Id], 
+    [Page].[PageName] AS [PageName], 
+    [Page].[Description] AS [Description], 
+    [Page].[UrlPath] AS [UrlPath], 
+    [Page].[ParentMenu] AS [ParentMenu], 
+    [Page].[Icon] AS [Icon], 
+    [Page].[Order] AS [Order], 
+    [Page].[IsParent] AS [IsParent], 
+    [Page].[Visible] AS [Visible], 
+    [Page].[AccessibleByAll] AS [AccessibleByAll], 
+    [Page].[Active] AS [Active], 
+    [Page].[DateCreated] AS [DateCreated]
+    FROM [dbo].[Page] AS [Page]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PageAccess" EntityType="Self.PageAccess" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PageAccess].[Id] AS [Id], 
+    [PageAccess].[PageId] AS [PageId], 
+    [PageAccess].[RoleId] AS [RoleId], 
+    [PageAccess].[CanCreate] AS [CanCreate], 
+    [PageAccess].[CanRead] AS [CanRead], 
+    [PageAccess].[CanUpdate] AS [CanUpdate], 
+    [PageAccess].[CanDelete] AS [CanDelete], 
+    [PageAccess].[CreatedBy] AS [CreatedBy], 
+    [PageAccess].[DateCreated] AS [DateCreated], 
+    [PageAccess].[UpdatedBy] AS [UpdatedBy], 
+    [PageAccess].[DateUpdated] AS [DateUpdated]
+    FROM [dbo].[PageAccess] AS [PageAccess]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PasswordHistory" EntityType="Self.PasswordHistory" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PasswordHistory].[Id] AS [Id], 
+    [PasswordHistory].[UserID] AS [UserID], 
+    [PasswordHistory].[Password] AS [Password], 
+    [PasswordHistory].[DateCreated] AS [DateCreated]
+    FROM [dbo].[PasswordHistory] AS [PasswordHistory]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Role" EntityType="Self.Role" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Role].[Id] AS [Id], 
+    [Role].[RoleName] AS [RoleName], 
+    [Role].[Description] AS [Description], 
+    [Role].[CreatedBy] AS [CreatedBy], 
+    [Role].[DateCreated] AS [DateCreated], 
+    [Role].[UpdatedBy] AS [UpdatedBy], 
+    [Role].[DateUpdated] AS [DateUpdated]
+    FROM [dbo].[Role] AS [Role]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Settings" EntityType="Self.Settings" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Settings].[Id] AS [Id], 
+    [Settings].[FromEmail] AS [FromEmail], 
+    [Settings].[FromName] AS [FromName], 
+    [Settings].[ServerName] AS [ServerName], 
+    [Settings].[SMTPPort] AS [SMTPPort], 
+    [Settings].[Username] AS [Username], 
+    [Settings].[Password] AS [Password], 
+    [Settings].[EnableSSL] AS [EnableSSL], 
+    [Settings].[MaxSignOnAttempts] AS [MaxSignOnAttempts], 
+    [Settings].[ExpiresIn] AS [ExpiresIn], 
+    [Settings].[MinPasswordLength] AS [MinPasswordLength], 
+    [Settings].[MinSpecialCharacters] AS [MinSpecialCharacters], 
+    [Settings].[EnforcePasswordHistory] AS [EnforcePasswordHistory], 
+    [Settings].[ActivationLinkExpiresIn] AS [ActivationLinkExpiresIn], 
+    [Settings].[BaseUrl] AS [BaseUrl], 
+    [Settings].[OverRemittanceApprover] AS [OverRemittanceApprover], 
+    [Settings].[CreatedBy] AS [CreatedBy], 
+    [Settings].[DateCreated] AS [DateCreated], 
+    [Settings].[UpdatedBy] AS [UpdatedBy], 
+    [Settings].[DateUpdated] AS [DateUpdated]
+    FROM [dbo].[Settings] AS [Settings]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [UserRole].[Id] AS [Id], 
+    [UserRole].[UserId] AS [UserId], 
+    [UserRole].[RoleId] AS [RoleId], 
+    [UserRole].[CreatedBy] AS [CreatedBy], 
+    [UserRole].[DateCreated] AS [DateCreated], 
+    [UserRole].[UpdatedBy] AS [UpdatedBy], 
+    [UserRole].[DateUpdated] AS [DateUpdated]
+    FROM [dbo].[UserRole] AS [UserRole]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Users" EntityType="Self.Users" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Users].[Id] AS [Id], 
+    [Users].[LastName] AS [LastName], 
+    [Users].[FirstName] AS [FirstName], 
+    [Users].[UserName] AS [UserName], 
+    [Users].[Password] AS [Password], 
+    [Users].[EmailAddress] AS [EmailAddress], 
+    [Users].[PhoneNumber] AS [PhoneNumber], 
+    [Users].[Address] AS [Address], 
+    [Users].[UserStatus] AS [UserStatus], 
+    [Users].[AvatarUrl] AS [AvatarUrl], 
+    [Users].[SignOnAttempts] AS [SignOnAttempts], 
+    [Users].[LoggedIn] AS [LoggedIn], 
+    [Users].[ExpirationDate] AS [ExpirationDate], 
+    [Users].[PasswordToken] AS [PasswordToken], 
+    [Users].[CreatedBy] AS [CreatedBy], 
+    [Users].[DateCreated] AS [DateCreated], 
+    [Users].[UpdatedBy] AS [UpdatedBy], 
+    [Users].[DateUpdated] AS [DateUpdated]
+    FROM [dbo].[Users] AS [Users]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="UserStatus" EntityType="Self.UserStatus" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [UserStatus].[Id] AS [Id], 
+    [UserStatus].[Description] AS [Description], 
+    [UserStatus].[CreatedBy] AS [CreatedBy], 
+    [UserStatus].[DateCreated] AS [DateCreated], 
+    [UserStatus].[UpdatedBy] AS [UpdatedBy], 
+    [UserStatus].[DateUpdated] AS [DateUpdated]
+    FROM [dbo].[UserStatus] AS [UserStatus]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PVAOModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="PVAOEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="RefOverRemittances" EntityType="PVAOModel.RefOverRemittance" />
           <EntitySet Name="C__EFMigrationsHistory" EntityType="PVAOModel.C__EFMigrationsHistory" />
           <EntitySet Name="BenefitStatus" EntityType="PVAOModel.BenefitStatu" />
           <EntitySet Name="Companies" EntityType="PVAOModel.Company" />
@@ -198,9 +443,28 @@
           <EntitySet Name="Users" EntityType="PVAOModel.User" />
           <EntitySet Name="UserStatus" EntityType="PVAOModel.UserStatu" />
         </EntityContainer>
+        <EntityType Name="RefOverRemittance">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="ClaimNumber" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="BenefitStatus" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="VDMSNumber" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PensionerName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="DateComputed" Type="DateTime" Nullable="false" Precision="7" />
+          <Property Name="ComputedBy" Type="Int32" Nullable="false" />
+          <Property Name="DateSubmitted" Type="DateTime" Precision="7" />
+          <Property Name="SubmittedBy" Type="Int32" />
+          <Property Name="ApprovedRejectedBy" Type="Int32" />
+          <Property Name="ApprovedRejectedDate" Type="DateTime" Precision="7" />
+          <Property Name="Remarks" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
         <EntityType Name="C__EFMigrationsHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ProductVersion" />
           </Key>
           <Property Name="MigrationId" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="ProductVersion" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
@@ -208,8 +472,12 @@
         <EntityType Name="BenefitStatu">
           <Key>
             <PropertyRef Name="Id" />
+            <PropertyRef Name="Description" />
+            <PropertyRef Name="Prefix" />
+            <PropertyRef Name="CreatedBy" />
+            <PropertyRef Name="DateCreated" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Prefix" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="Claimant" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
@@ -221,8 +489,15 @@
         <EntityType Name="Company">
           <Key>
             <PropertyRef Name="Id" />
+            <PropertyRef Name="CompanyName" />
+            <PropertyRef Name="Address" />
+            <PropertyRef Name="EmailAddress" />
+            <PropertyRef Name="PhoneNumber" />
+            <PropertyRef Name="MobileNumber" />
+            <PropertyRef Name="AboutUs" />
+            <PropertyRef Name="LogoPath" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="CompanyName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Address" Type="String" Nullable="false" MaxLength="650" FixedLength="false" Unicode="true" />
           <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
@@ -235,8 +510,17 @@
         <EntityType Name="Page">
           <Key>
             <PropertyRef Name="Id" />
+            <PropertyRef Name="PageName" />
+            <PropertyRef Name="Description" />
+            <PropertyRef Name="UrlPath" />
+            <PropertyRef Name="Order" />
+            <PropertyRef Name="IsParent" />
+            <PropertyRef Name="Visible" />
+            <PropertyRef Name="AccessibleByAll" />
+            <PropertyRef Name="Active" />
+            <PropertyRef Name="DateCreated" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="PageName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="UrlPath" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
@@ -254,8 +538,14 @@
             <PropertyRef Name="Id" />
             <PropertyRef Name="PageId" />
             <PropertyRef Name="RoleId" />
+            <PropertyRef Name="CanCreate" />
+            <PropertyRef Name="CanRead" />
+            <PropertyRef Name="CanUpdate" />
+            <PropertyRef Name="CanDelete" />
+            <PropertyRef Name="CreatedBy" />
+            <PropertyRef Name="DateCreated" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="PageId" Type="Int32" Nullable="false" />
           <Property Name="RoleId" Type="Int32" Nullable="false" />
           <Property Name="CanCreate" Type="Boolean" Nullable="false" />
@@ -271,8 +561,10 @@
           <Key>
             <PropertyRef Name="Id" />
             <PropertyRef Name="UserID" />
+            <PropertyRef Name="Password" />
+            <PropertyRef Name="DateCreated" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="UserID" Type="Int32" Nullable="false" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="7" />
@@ -280,8 +572,12 @@
         <EntityType Name="Role">
           <Key>
             <PropertyRef Name="Id" />
+            <PropertyRef Name="RoleName" />
+            <PropertyRef Name="Description" />
+            <PropertyRef Name="CreatedBy" />
+            <PropertyRef Name="DateCreated" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="RoleName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="true" />
           <Property Name="CreatedBy" Type="Int32" Nullable="false" />
@@ -292,8 +588,23 @@
         <EntityType Name="Setting">
           <Key>
             <PropertyRef Name="Id" />
+            <PropertyRef Name="FromEmail" />
+            <PropertyRef Name="FromName" />
+            <PropertyRef Name="ServerName" />
+            <PropertyRef Name="SMTPPort" />
+            <PropertyRef Name="Username" />
+            <PropertyRef Name="Password" />
+            <PropertyRef Name="EnableSSL" />
+            <PropertyRef Name="MaxSignOnAttempts" />
+            <PropertyRef Name="ExpiresIn" />
+            <PropertyRef Name="MinPasswordLength" />
+            <PropertyRef Name="MinSpecialCharacters" />
+            <PropertyRef Name="EnforcePasswordHistory" />
+            <PropertyRef Name="ActivationLinkExpiresIn" />
+            <PropertyRef Name="CreatedBy" />
+            <PropertyRef Name="DateCreated" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="FromEmail" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="FromName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="ServerName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
@@ -308,6 +619,7 @@
           <Property Name="EnforcePasswordHistory" Type="Int32" Nullable="false" />
           <Property Name="ActivationLinkExpiresIn" Type="Int32" Nullable="false" />
           <Property Name="BaseUrl" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="OverRemittanceApprover" Type="Int32" />
           <Property Name="CreatedBy" Type="Int32" Nullable="false" />
           <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="7" />
           <Property Name="UpdatedBy" Type="Int32" />
@@ -318,8 +630,10 @@
             <PropertyRef Name="Id" />
             <PropertyRef Name="UserId" />
             <PropertyRef Name="RoleId" />
+            <PropertyRef Name="CreatedBy" />
+            <PropertyRef Name="DateCreated" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="UserId" Type="Int32" Nullable="false" />
           <Property Name="RoleId" Type="Int32" Nullable="false" />
           <Property Name="CreatedBy" Type="Int32" Nullable="false" />
@@ -330,8 +644,20 @@
         <EntityType Name="User">
           <Key>
             <PropertyRef Name="Id" />
+            <PropertyRef Name="LastName" />
+            <PropertyRef Name="FirstName" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="Password" />
+            <PropertyRef Name="EmailAddress" />
+            <PropertyRef Name="Address" />
+            <PropertyRef Name="UserStatus" />
+            <PropertyRef Name="SignOnAttempts" />
+            <PropertyRef Name="LoggedIn" />
+            <PropertyRef Name="ExpirationDate" />
+            <PropertyRef Name="CreatedBy" />
+            <PropertyRef Name="DateCreated" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="LastName" Type="String" Nullable="false" MaxLength="35" FixedLength="false" Unicode="true" />
           <Property Name="FirstName" Type="String" Nullable="false" MaxLength="35" FixedLength="false" Unicode="true" />
           <Property Name="UserName" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
@@ -353,8 +679,11 @@
         <EntityType Name="UserStatu">
           <Key>
             <PropertyRef Name="Id" />
+            <PropertyRef Name="Description" />
+            <PropertyRef Name="CreatedBy" />
+            <PropertyRef Name="DateCreated" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Description" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="CreatedBy" Type="Int32" Nullable="false" />
           <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="7" />
@@ -367,6 +696,25 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="PVAOModelStoreContainer" CdmEntityContainer="PVAOEntities">
+          <EntitySetMapping Name="RefOverRemittances">
+            <EntityTypeMapping TypeName="PVAOModel.RefOverRemittance">
+              <MappingFragment StoreEntitySet="RefOverRemittance">
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="ApprovedRejectedDate" ColumnName="ApprovedRejectedDate" />
+                <ScalarProperty Name="ApprovedRejectedBy" ColumnName="ApprovedRejectedBy" />
+                <ScalarProperty Name="SubmittedBy" ColumnName="SubmittedBy" />
+                <ScalarProperty Name="DateSubmitted" ColumnName="DateSubmitted" />
+                <ScalarProperty Name="ComputedBy" ColumnName="ComputedBy" />
+                <ScalarProperty Name="DateComputed" ColumnName="DateComputed" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="PensionerName" ColumnName="PensionerName" />
+                <ScalarProperty Name="VDMSNumber" ColumnName="VDMSNumber" />
+                <ScalarProperty Name="BenefitStatus" ColumnName="BenefitStatus" />
+                <ScalarProperty Name="ClaimNumber" ColumnName="ClaimNumber" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="C__EFMigrationsHistory">
             <EntityTypeMapping TypeName="PVAOModel.C__EFMigrationsHistory">
               <MappingFragment StoreEntitySet="__EFMigrationsHistory">
@@ -469,6 +817,7 @@
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
                 <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="OverRemittanceApprover" ColumnName="OverRemittanceApprover" />
                 <ScalarProperty Name="BaseUrl" ColumnName="BaseUrl" />
                 <ScalarProperty Name="ActivationLinkExpiresIn" ColumnName="ActivationLinkExpiresIn" />
                 <ScalarProperty Name="EnforcePasswordHistory" ColumnName="EnforcePasswordHistory" />

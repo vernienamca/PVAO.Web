@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'D:\Projects\pvao\PVAO-WEB\PVAOWeb\Models\PVAOModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\VNamca\Desktop\PVAO Project\PVAO.Web\PVAO.Web\Models\PVAOModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

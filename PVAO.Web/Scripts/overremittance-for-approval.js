@@ -1,6 +1,6 @@
 ﻿var OverRemittanceForApproval = function () {
     var form = this;
-    //var baseUrl = JSON.parse(localStorage.getItem("api")).baseUrl;
+    //var baseUrl = JSON.parse(localStorage.getItem("applicationApiUrl")).baseUrl;
     var baseUrl = 'http://172.16.2.199:3021';
 
     form._construct = function () {

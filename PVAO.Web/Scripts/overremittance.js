@@ -1,7 +1,7 @@
 ﻿var OverRemittance = function () {
     var form = this;
-    //var baseUrl = JSON.parse(localStorage.getItem("api")).baseUrl;
-    var baseUrl = 'http://172.16.1.113:3020';
+    var baseUrl = JSON.parse(localStorage.getItem("applicationApiUrl")).baseUrl;
+    //var baseUrl = 'http://172.16.1.113:3020';
 
     form._construct = function () {
         var url = window.location.href;

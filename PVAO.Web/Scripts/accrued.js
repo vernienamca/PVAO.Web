@@ -1,6 +1,6 @@
 ﻿var Accrued = function () {
     var form = this;
-    var baseUrl = JSON.parse(localStorage.getItem("api")).baseUrl;
+    var baseUrl = JSON.parse(localStorage.getItem("applicationApiUrl")).baseUrl;
     var container, totalcount, pagesize;
 
     form._construct = function () {
