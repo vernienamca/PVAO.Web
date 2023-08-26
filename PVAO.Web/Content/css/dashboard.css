@@ -1851,6 +1851,18 @@ ul.buttons li {
     max-width: 40px;
 }
 
+/*=====================================
+        Homepage
+========================================*/
+
+.homepage h1 {
+    text-align: center;
+    color: #28a745;
+}
+
+.homepage .jumbotron {
+    background-color: transparent;
+}
 
 /*=====================================
         Responsive css
