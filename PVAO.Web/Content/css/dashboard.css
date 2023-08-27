@@ -501,11 +501,11 @@
 
 .navbar-sidebar2 .navbar__list li a.active,
 .navbar-sidebar2 .navbar__list a:hover {
-    background-color: #6449e7;
+    background-color: #28a745;
     color: white;
     border-width: 0 10px 0 0;
     border-style: solid;
-    border-color: #28a745;
+    border-color: #d4af37;
 }
 
 .navbar-sidebar2 .navbar__list li a {
