@@ -28,6 +28,7 @@
             <ul class="list-unstyled navbar__list">
                 @foreach (var item in pages.Where(x => parentMenus.Contains(x.Id)).OrderBy(x => x.Order).ToList())
                 {
+                    bool active = ("/" + ViewContext.RouteData.Values["controller"] + "/" + ViewContext.RouteData.Values["action"]).ToLower() == item.UrlPath.ToLower();
                     if (pages.Where(x => x.ParentMenu == @item.ParentMenu & !x.IsParent).Count() != 0)
                     {
                         string absolutePath = HttpContext.Current.Request.Url.AbsolutePath.Split('/')[1];
@@ -41,8 +42,9 @@
                             <ul class="list-unstyled navbar__sub-list js-sub-list" style="@display">
                                 @foreach (var sub in pages.Where(x => x.ParentMenu == item.ParentMenu && !x.IsParent).ToList())
                                 {
+                                    active = ("/" + ViewContext.RouteData.Values["controller"] + "/" + ViewContext.RouteData.Values["action"]).ToLower() == sub.UrlPath.ToLower();
                                     <li>
-                                        <a href="@sub.UrlPath">@sub.PageName</a>
+                                        <a href="@sub.UrlPath" class="@(active ? "active" : "")">@sub.PageName</a>
                                     </li>
                                 }
                             </ul>
@@ -51,7 +53,7 @@
                     else
                     {
                         <li>
-                            <a href="@item.UrlPath">
+                            <a href="@item.UrlPath" class="@(active ? "active" : "")">
                                 <i class="@item.Icon"></i>@item.PageName
                             </a>
                         </li>
