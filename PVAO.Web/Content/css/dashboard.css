@@ -1856,8 +1856,12 @@ ul.buttons li {
         Homepage
 ========================================*/
 
+.homepage p {
+    text-align: left;
+}
+
 .homepage h1 {
-    text-align: center;
+    text-align: left;
     color: #28a745;
 }
 
@@ -2185,5 +2189,11 @@ ul.buttons li {
 
     .customer-review {
         margin-bottom: 0;
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    .homepage .jumbotron {
+        padding: 8rem 2rem;
     }
 }
