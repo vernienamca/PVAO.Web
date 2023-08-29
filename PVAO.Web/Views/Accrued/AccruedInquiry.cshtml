@@ -1,4 +1,7 @@
-﻿<div id="accrued-inquiry" class="recent-activity my-listing">
+﻿@{
+    ViewBag.Title = "Accrued Inquiry";
+}
+<div id="accrued-inquiry" class="recent-activity my-listing">
     <div class="act-title">
         <h2><span class="header-text">Accrued Inquiry</span></h2>
         <p class="breadcrumbs">
@@ -24,7 +27,7 @@
                             <br />
                             <form id="upload_form" enctype="multipart/form-data" method="post">
                                 <table id="beneficiary-list" class="table-bordered"></table>
-                                <br/>
+                                <br />
                                 <button id="beneficiary-ok-button" type="button" class="btn btn-primary"> Ok</button>
                             </form>
                         </div>
