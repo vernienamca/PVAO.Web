@@ -1852,6 +1852,22 @@ ul.buttons li {
     max-width: 40px;
 }
 
+/*=====================================
+        Homepage
+========================================*/
+
+.homepage p {
+    text-align: left;
+}
+
+.homepage h1 {
+    text-align: left;
+    color: #28a745;
+}
+
+.homepage .jumbotron {
+    background-color: transparent;
+}
 
 /*=====================================
         Responsive css
@@ -2173,5 +2189,11 @@ ul.buttons li {
 
     .customer-review {
         margin-bottom: 0;
+    }
+}
+
+@media only screen and (min-width: 1400px) {
+    .homepage .jumbotron {
+        padding: 8rem 2rem;
     }
 }
