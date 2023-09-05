@@ -1831,6 +1831,7 @@
     <Content Include="Content\images\clients\reviewr-2.png" />
     <Content Include="Content\images\dashboard\agent_db_1.jpg" />
     <Content Include="Content\images\dashboard\bar-chart.png" />
+    <Content Include="Content\images\dashboard\cheque.png" />
     <Content Include="Content\images\dashboard\client_1.jpg" />
     <Content Include="Content\images\dashboard\client_2.jpg" />
     <Content Include="Content\images\dashboard\client_4.jpg" />

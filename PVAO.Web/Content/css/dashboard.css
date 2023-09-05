@@ -17,6 +17,10 @@
     background: #f91942;
 }
 
+.item--lightblue {
+    background: skyblue;
+}
+
 /*======================================
             Top Header
 ========================================*/
@@ -1877,6 +1881,16 @@ footer {
     border-top-style: solid;
     border-top: 1px solid rgb(221, 221, 221);
     margin-top: 55px;
+}
+
+.flex-container {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.flex-container > div {
+    margin: 0 10px;
+    width: 100%;
 }
 
 /*=====================================
