@@ -28,7 +28,10 @@
             <ul class="list-unstyled navbar__list">
                 @foreach (var item in pages.Where(x => parentMenus.Contains(x.Id)).OrderBy(x => x.Order).ToList())
                 {
-                    bool active = ("/" + ViewContext.RouteData.Values["controller"] + "/" + ViewContext.RouteData.Values["action"]).ToLower() == item.UrlPath.ToLower();
+                    string controller = ViewContext.RouteData.Values["controller"].ToString().ToLower();
+                    string action = ViewContext.RouteData.Values["action"].ToString().ToLower();
+                    bool innerSubPage = !pages.Any(x => !x.IsParent && x.UrlPath?.ToLower().Trim() == ("/" + controller + "/" + action));
+
                     if (pages.Where(x => x.ParentMenu == @item.ParentMenu & !x.IsParent).Count() != 0)
                     {
                         string absolutePath = HttpContext.Current.Request.Url.AbsolutePath.Split('/')[1];
@@ -42,7 +45,7 @@
                             <ul class="list-unstyled navbar__sub-list js-sub-list" style="@display">
                                 @foreach (var sub in pages.Where(x => x.ParentMenu == item.ParentMenu && !x.IsParent).ToList())
                                 {
-                                    active = ("/" + ViewContext.RouteData.Values["controller"] + "/" + ViewContext.RouteData.Values["action"]).ToLower() == sub.UrlPath.ToLower();
+                                    bool active = (("/" + controller + "/" + action) == sub.UrlPath?.ToLower().Trim());
                                     <li>
                                         <a href="@sub.UrlPath" class="@(active ? "active" : "")">@sub.PageName</a>
                                     </li>
@@ -52,6 +55,8 @@
                     }
                     else
                     {
+                        bool active = (("/" + controller + "/" + action) == item.UrlPath?.ToLower().Trim()) || (innerSubPage && item.UrlPath?.ToLower().Trim() == ("/" + controller + "/index"));
+
                         <li>
                             <a href="@item.UrlPath" class="@(active ? "active" : "")">
                                 <i class="@item.Icon"></i>@item.PageName
